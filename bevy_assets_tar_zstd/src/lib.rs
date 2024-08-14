@@ -1,5 +1,19 @@
 //! A bevy [`AssetIo`](bevy::asset::AssetIo) implementation that allows reading from
 //! tar files, that are zstd compressed.
+//! 
+//! Add to bevy with:
+//! 
+//! ```
+//! fn main() {
+//!   App::new()
+//!   .add_plugins(DefaultPlugins)
+//!   .add_plugins(EguiPlugin)
+//!   .add_plugins(AssetsTarZstdPlugin::default())
+//!   .init_state::<gamestate::AppState>()
+//!   .add_plugins(MainMenu)
+//!   .run();
+//! }
+//! ```
 //!
 //! Use the crate bevy_assets_tar_zstd_bundler to bundle the assets in an folder at build time.
 //!
@@ -10,6 +24,12 @@
 //! ```
 //!
 //! This will read assets from the `assets` folder an write them into `./target/assets.bin`.
+//! 
+//! Compatability
+//! 
+//! | bevy | bevy_assets_tar_zstd |
+//! |------|----------------------|
+//! | 0.9  | 0.1                  |
 
 use bevy::asset::AssetIoError;
 use bevy::{asset::AssetIo, prelude::*};
